@@ -1,0 +1,133 @@
+<!-- @Darshan -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <style>
+        /* Positioning title and logout button */
+        .page-header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 36px; /* Increased font size */
+            font-weight: bold;
+            color: #388E3C;
+        }
+
+        #logout {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #d32f2f; /* Red for logout */
+            color: white;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: auto; /* Prevents stretching */
+            display: inline-block;
+        }
+
+        #logout:hover {
+            background-color: #b71c1c; /* Darker red */
+        }
+
+        /* Dashboard layout */
+        .dashboard {
+            text-align: center;
+            margin-top: 90px; /* Pushes content down */
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 buttons per row */
+            gap: 20px;
+            padding: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Styling for section buttons */
+        .section-button {
+            width: 100%;
+            height: 200px; /* Large enough to fill the screen properly */
+            padding: 20px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-button p {
+            font-size: 16px;
+            margin-top: 5px;
+            color: white;
+            font-weight: normal;
+        }
+
+        .section-button:hover {
+            background-color: #388E3C;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-header">Dashboard</h1>
+
+    <!-- Logouts the user -->
+    <button id="logout" onclick="logout()">Logout</button>
+
+    <div class="dashboard">
+        
+        <!-- Infor for watering the plants -->
+        <button class="section-button" onclick="window.location.href='/watering.html'">
+            Watering
+            <p>Manage watering schedules and settings for crops.</p>
+        </button>
+
+        <!-- Where to put seeds in the grid -->
+        <button class="section-button" onclick="window.location.href='placement.html'">
+            Placement
+            <p>Manage the placement of crops within the field.</p>
+        </button>
+
+        
+        <button class="section-button" onclick="window.location.href='crop_cycle.html'">
+            Crop Cycle
+            <p>View and manage crop growth stages and timelines.</p>
+        </button>
+
+        <button class="section-button" onclick="window.location.href='create_crop.html'">
+            Create Crops
+            <p>Create and add new crops to your system.</p>
+        </button>
+    </div>
+
+    <script>
+        function logout() {
+            // Logic to handle logging out
+            window.location.href = 'login.html'; // Redirect to login page
+        }
+    </script>
+</body>
+</html>

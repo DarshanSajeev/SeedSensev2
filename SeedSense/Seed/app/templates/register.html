@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Seed Sense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Register</h1>
+        <p>Create an account to access Seed Sense</p>
+        
+        <form id="register-form" action="dashboard.html" method="post" onsubmit="return validateForm(event)">
+
+            <!-- Username Field -->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <!-- Email Field (Corrected) -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+            </div>
+            
+
+            <!-- Error Message Display -->
+            <div id="error-message" style="color: red;"></div>
+
+            <a href="{{ url_for('FieldCreation') }}">
+                <button type="button">Register</button>
+            </a>
+
+            <!-- Correcting the Login link -->
+            <p>Already have an account? <a href="{{ url_for('LogIn') }}" class="btn">Login here</a></p>
+
+    </div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirm-password").value.trim();
+            let errorMsg = document.getElementById("error-message");
+            errorMsg.innerHTML = ""; // Clear previous errors
+            let valid = true;
+
+            // Username validation (3 to 15 characters)
+            if (username.length < 3 || username.length > 15) {
+                errorMsg.innerHTML += "<p>Username must be between 3 and 15 characters.</p>";
+                valid = false;
+            }
+
+            // Password validation
+            let passwordRegex = /^(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+            if (!passwordRegex.test(password)) {
+                errorMsg.innerHTML += "<p>Password must be at least 8 characters, include one uppercase letter, and one special character.</p>";
+                valid = false;
+            }
+
+            // Confirm password validation
+            if (password !== confirmPassword) {
+                errorMsg.innerHTML += "<p>Passwords do not match.</p>";
+                valid = false;
+            }
+
+            // If no errors, submit the form
+            if (valid) {
+                document.getElementById("register-form").submit();
+            }
+        }
+    </script>
+
+</body>
+</html>

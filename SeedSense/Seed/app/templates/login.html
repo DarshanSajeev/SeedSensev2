@@ -1,0 +1,40 @@
+<!-- @Darshan -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Seed Sense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Login</h1>
+        <p>Welcome back! Please enter your credentials to login.</p>
+        
+        <form action="dashboard.html" method="post">
+
+            <!-- Username Field -->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <a href="{{ url_for('SchedBoard') }}">
+                <button type="button">Login</button>
+            </a>
+              
+        </form>
+
+        <p>Don't have an account? <a href="{{ url_for('Register') }}" class="btn">Register here</a></p>
+    </div>
+
+</body>
+</html>

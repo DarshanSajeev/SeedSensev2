@@ -1,0 +1,170 @@
+<!-- @Darshan -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Creator</title>
+    <style>
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Progress Bar Styles */
+        #progress-container {
+            width: 80%;
+            height: 30px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 10px auto;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: green;
+            border-radius: 5px;
+        }
+
+        /* Button Styles */
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Grid Container */
+        #grid-container {
+            display: grid;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .grid-item {
+            width: 50px;
+            height: 50px;
+            background-color: #ccc;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #999;
+        }
+
+        /* Heading */
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        #grid-input {
+            margin-top: 20px;
+        }
+
+        /* Enter Button Positioning */
+        #enter-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        /* Larger input box and text */
+        #grid-size {
+            padding: 10px;
+            font-size: 18px;
+            width: 200px;
+            margin-top: 10px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Grid Section -->
+    <div id="grid-input">
+        <label for="grid-size">Enter grid size (e.g., 2x2): </label>
+        <input type="text" id="grid-size" placeholder="e.g. 2x2">
+        <button onclick="createGrid()">Create Grid</button>
+    </div>
+    <div id="grid-container"></div>
+
+    <!-- Enter Button -->
+    <a href="{{ url_for('SetMineral') }}">
+        <button type="button">Enter</button>
+    </a>
+
+    <script>
+        let progress = 0;  // Initial progress
+
+        // Function to increase progress bar
+        function increaseProgress() {
+            if (progress < 25) {
+                progress = 25;
+                document.getElementById("progress-bar").style.width = progress + "%";
+                localStorage.setItem('progress', progress); // Store progress in localStorage
+            }
+        }
+
+        // Function to create grid based on user input
+        function createGrid() {
+            const gridSize = document.getElementById("grid-size").value;
+            const gridContainer = document.getElementById("grid-container");
+
+            // Clear any previous grid
+            gridContainer.innerHTML = '';
+
+            // Validate the input format (e.g., 2x2)
+            const regex = /^(\d+)x(\d+)$/;
+            const match = gridSize.match(regex);
+
+            if (match) {
+                const rows = parseInt(match[1]);
+                const cols = parseInt(match[2]);
+
+                // Set the grid style dynamically
+                gridContainer.style.gridTemplateRows = `repeat(${rows}, 50px)`;
+                gridContainer.style.gridTemplateColumns = `repeat(${cols}, 50px)`;
+
+                // Create grid items
+                for (let i = 0; i < rows * cols; i++) {
+                    const gridItem = document.createElement('div');
+                    gridItem.className = 'grid-item';
+                    gridItem.textContent = i + 1; // Add item number (optional)
+                    gridContainer.appendChild(gridItem);
+                }
+            } else {
+                alert("Please enter a valid grid size (e.g., 2x2).");
+            }
+        }
+
+        // Function to handle Enter button click
+        function goToMineralsPage() {
+            // Store the current progress value
+            localStorage.setItem('progress', progress);
+
+            // Navigate to the minerals page
+            window.location.href = 'minerals.html'; // Redirect to minerals page
+        }
+
+
+
+    </script>
+</body>
+</html>

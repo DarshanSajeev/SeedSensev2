@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Seed Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Basic CSS to style the navigation bar and content */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #333;
+        }
+
+        .section p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#field-view" class="active">Field View</a>
+        <a href="#growth-essentials">Growth Essentials</a>
+        <a href="#placement-recommendation">Placement Recommendation</a>
+    </div>
+
+    <!-- Help Content -->
+    <div class="container">
+
+        <!-- Field View Section -->
+        <div id="field-view" class="section">
+            <h2>Field View</h2>
+            <p>Field view helps you understand how different crops perform in various environmental conditions. Learn about the best types of soil, watering conditions, and sunlight needs to optimize your crop yield.</p>
+        </div>
+
+        <!-- Growth Essentials Section -->
+        <div id="growth-essentials" class="section">
+            <h2>Growth Essentials</h2>
+            <p>Growth essentials provide crucial information on the key nutrients and environmental factors that influence plant growth. This section covers soil pH, temperature ranges, sunlight, and watering frequencies necessary for healthy crops.</p>
+        </div>
+
+        <!-- Placement Recommendation Section -->
+        <div id="placement-recommendation" class="section">
+            <h2>Placement Recommendation</h2>
+            <p>Placement recommendations help you decide the best location for planting your crops based on temperature, sunlight, and soil requirements. It also includes suggestions for intercropping and crop rotation for sustainable farming.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

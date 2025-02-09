@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seed Information Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Larger dropdowns with more length */
+        select {
+            font-size: 18px; /* Increase font size */
+            padding: 12px; /* Increase padding for better click area */
+            width: 100%; /* Make dropdown take up full width of the container */
+            max-width: 110%; /* Set max width to make it longer */
+            min-width: 300px; /* Set a minimum width */
+            border-radius: 5px; /* Rounded corners for dropdown */
+            border: 1px solid #ccc; /* Add border */
+            margin: 5px 0; /* Add margin for spacing */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Seed Information Form</h1>
+        <p>Please fill out the details below. If you're unsure how to get the information from seed packets, check this 
+        <a href="https://mylittlegreengarden.com/how-to-read-a-seed-packet-for-beginners/" target="_blank">guide</a>.</p>
+        
+        <form action="#" method="post">
+
+            <div class="form-group">
+                <label for="seed-type">Seed Type</label>
+                <input type="text" id="seed-type" name="seed-type" placeholder="Enter seed type" required>
+            </div>
+
+            <div class="form-group">
+                <label for="min-temp">Min Temperature (°C)</label>
+                <input type="number" id="min-temp" name="min-temp" placeholder="Min Temp" required>
+            </div>
+
+            <div class="form-group">
+                <label for="max-temp">Max Temperature (°C)</label>
+                <input type="number" id="max-temp" name="max-temp" placeholder="Max Temp" required>
+            </div>
+
+            <div class="form-group">
+                <label for="min-rain">Min Rainfall (mm)</label>
+                <input type="number" id="min-rain" name="min-rain" placeholder="Min Rainfall" required>
+            </div>
+
+            <div class="form-group">
+                <label for="max-rain">Max Rainfall (mm)</label>
+                <input type="number" id="max-rain" name="max-rain" placeholder="Max Rainfall" required>
+            </div>
+
+            <div class="form-group">
+                <label for="min-sunlight">Min Sunlight (hours)</label>
+                <input type="number" id="min-sunlight" name="min-sunlight" placeholder="Min Sunlight" required>
+            </div>
+
+            <div class="form-group">
+                <label for="max-sunlight">Max Sunlight (hours)</label>
+                <input type="number" id="max-sunlight" name="max-sunlight" placeholder="Max Sunlight" required>
+            </div>
+
+            <div class="form-group">
+                <label for="germination">Germination Time (days)</label>
+                <input type="number" id="germination" name="germination" placeholder="Days to germinate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="watering">Watering Frequency (days)</label>
+                <input type="number" id="watering" name="watering" placeholder="Water every X days" required>
+            </div>
+
+            <!-- Minerals In Section -->
+            <div class="form-group">
+                <label for="minerals-in">Minerals In</label>
+                <select id="minerals-in" name="minerals-in" required>
+                    <option value="Nitrogen">Nitrogen</option>
+                    <option value="Phosphorus">Phosphorus</option>
+                    <option value="Potassium">Potassium</option>
+                    <option value="Calcium">Calcium</option>
+                    <option value="Magnesium">Magnesium</option>
+                    <option value="Sulfur">Sulfur</option>
+                    <option value="Zinc">Zinc</option>
+                    <option value="Iron">Iron</option>
+                    <option value="Manganese">Manganese</option>
+                    <option value="Copper">Copper</option>
+                    <option value="Boron">Boron</option>
+                    <option value="Molybdenum">Molybdenum</option>
+                    <option value="Chlorine">Chlorine</option>
+                </select>
+            </div>
+
+            <!-- Minerals Out Section -->
+            <div class="form-group">
+                <label for="minerals-out">Minerals Out</label>
+                <select id="minerals-out" name="minerals-out" required>
+                    <option value="Nitrogen">Nitrogen</option>
+                    <option value="Phosphorus">Phosphorus</option>
+                    <option value="Potassium">Potassium</option>
+                    <option value="Calcium">Calcium</option>
+                    <option value="Magnesium">Magnesium</option>
+                    <option value="Sulfur">Sulfur</option>
+                    <option value="Zinc">Zinc</option>
+                    <option value="Iron">Iron</option>
+                    <option value="Manganese">Manganese</option>
+                    <option value="Copper">Copper</option>
+                    <option value="Boron">Boron</option>
+                    <option value="Molybdenum">Molybdenum</option>
+                    <option value="Chlorine">Chlorine</option>
+                </select>
+            </div>
+
+            <a href="{{ url_for('LogIn') }}" >
+                <button type="submit">Submit</button>
+            </a>
+
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minerals Checklist - Seed Sense</title>
+    <link {{ url_for('static', filename='style.css') }}>
+    <style>
+        /* Basic styling for the checklist */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* Making the text for each mineral larger */
+        .form-group {
+            margin-bottom: 10px;
+            font-size: 24px; /* Larger text size */
+            display: flex;
+            justify-content: space-between; /* Pushes label to the left and checkbox to the right */
+            align-items: center; /* Vertically align checkbox with text */
+        }
+
+        label {
+            margin-left: 10px;
+            font-size: 24px; /* Larger text size for labels */
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.5); /* Larger checkboxes */
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Minerals Checklist</h1>
+        
+        <form action="submit_minerals.html" method="post">
+            <!-- Checklist for Minerals -->
+            <div class="form-group">
+                <label for="nitrogen">Nitrogen</label>
+                <input type="checkbox" id="nitrogen" name="minerals" value="Nitrogen">
+            </div>
+
+            <div class="form-group">
+                <label for="phosphorus">Phosphorus</label>
+                <input type="checkbox" id="phosphorus" name="minerals" value="Phosphorus">
+            </div>
+
+            <div class="form-group">
+                <label for="potassium">Potassium</label>
+                <input type="checkbox" id="potassium" name="minerals" value="Potassium">
+            </div>
+
+            <div class="form-group">
+                <label for="calcium">Calcium</label>
+                <input type="checkbox" id="calcium" name="minerals" value="Calcium">
+            </div>
+
+            <div class="form-group">
+                <label for="magnesium">Magnesium</label>
+                <input type="checkbox" id="magnesium" name="minerals" value="Magnesium">
+            </div>
+
+            <div class="form-group">
+                <label for="sulfur">Sulfur</label>
+                <input type="checkbox" id="sulfur" name="minerals" value="Sulfur">
+            </div>
+
+            <div class="form-group">
+                <label for="zinc">Zinc</label>
+                <input type="checkbox" id="zinc" name="minerals" value="Zinc">
+            </div>
+
+            <div class="form-group">
+                <label for="iron">Iron</label>
+                <input type="checkbox" id="iron" name="minerals" value="Iron">
+            </div>
+
+            <div class="form-group">
+                <label for="manganese">Manganese</label>
+                <input type="checkbox" id="manganese" name="minerals" value="Manganese">
+            </div>
+
+            <div class="form-group">
+                <label for="copper">Copper</label>
+                <input type="checkbox" id="copper" name="minerals" value="Copper">
+            </div>
+
+            <div class="form-group">
+                <label for="boron">Boron</label>
+                <input type="checkbox" id="boron" name="minerals" value="Boron">
+            </div>
+
+            <div class="form-group">
+                <label for="molybdenum">Molybdenum</label>
+                <input type="checkbox" id="molybdenum" name="minerals" value="Molybdenum">
+            </div>
+
+            <div class="form-group">
+                <label for="chlorine">Chlorine</label>
+                <input type="checkbox" id="chlorine" name="minerals" value="Chlorine">
+            </div>
+
+            <!-- Submit Button -->
+            <a href="{{ url_for('CropCycleRec') }}">
+                <button type="button">Submit</button>
+            </a>
+        </form>
+    </div>
+
+</body>
+</html>
